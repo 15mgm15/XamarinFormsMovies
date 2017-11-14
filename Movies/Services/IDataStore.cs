@@ -7,6 +7,6 @@ namespace Movies
     public interface IDataStore<T>
     {
         Task<T> GetItemAsync(string id);
-        Task<Tuple<List<T>, string>> GetItemsAsync(bool forceRefresh = false);
+        Task<Tuple<List<T>, string>> GetItemsAsync(int page = 1);
     }
 }

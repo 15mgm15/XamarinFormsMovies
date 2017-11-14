@@ -26,6 +26,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\StaticData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MoviesResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\EventToCommandBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\BehaviorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\CustomListView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NoCacheCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MovieDetailPage.xaml" />
@@ -34,5 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
   </ItemGroup>
 </Project>
