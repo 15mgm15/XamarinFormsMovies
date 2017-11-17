@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Linq;
@@ -13,6 +12,8 @@ namespace Movies
     public class MoviesViewModel : BaseViewModel
     {
         #region Properties and Commands
+
+        const int FirstPage = 1;
 
         public InfiniteScrollCollection<Movie> Items { get; set; }
 
@@ -48,7 +49,7 @@ namespace Movies
                 }
             };
 
-            Page = 1;
+            Page = FirstPage;
 
 
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -89,7 +90,7 @@ namespace Movies
             try
             {
                 Items.Clear();
-                Page = 1;
+                Page = FirstPage;
                 await CallApiAndLoadList();
             }
             catch (Exception ex)
@@ -115,7 +116,7 @@ namespace Movies
                 IsLoadingMore = true;
 
                 Page++;
-                if (Page > 1)
+                if (Page > FirstPage)
                 {
                     await CallApiAndLoadList();
                 }
@@ -141,6 +142,8 @@ namespace Movies
             {
                 return;
             }
+
+            //moviesList = moviesList.OrderByDescending(t => t.ReleaseDate).ToList();
 
             foreach (var movie in moviesList)
             {

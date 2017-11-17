@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
+using Xamarin.Forms;
 
 namespace Movies.Droid
 {
@@ -22,6 +23,7 @@ namespace Movies.Droid
             base.OnCreate(bundle);
 
             CachedImageRenderer.Init();
+            Forms.SetFlags("FastRenderers_Experimental");
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
