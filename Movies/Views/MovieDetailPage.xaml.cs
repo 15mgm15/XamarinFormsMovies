@@ -1,31 +1,14 @@
-﻿using System;
-using Movies.Models;
-using Xamarin.Forms;
+﻿using Movies.Models;
+using Movies.Views.Base;
 
 namespace Movies
 {
-    public partial class MovieDetailPage : ContentPage
+    public partial class MovieDetailPage : BaseContentPage
     {
-        MovieDetailViewModel viewModel;
-
-        public MovieDetailPage()
+        public MovieDetailPage(Movie movie)
         {
             InitializeComponent();
-
-            var item = new Movie
-            {
-                
-            };
-
-            viewModel = new MovieDetailViewModel(item);
-            BindingContext = viewModel;
-        }
-
-        public MovieDetailPage(MovieDetailViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = movie;
         }
     }
 }

@@ -30,9 +30,9 @@ namespace Movies.Controls
             if (item == null)
                 return;
 
-            CachedImage.HeightRequest = !string.IsNullOrEmpty(item.BackdropPath) ? 200 : 0;
+            CachedImage.HeightRequest = !string.IsNullOrEmpty(item.BackdropPath) ? 210 : 0;
 
-            CachedImage.Source = item.HighResPosterPath;
+            CachedImage.Source = item.HighResBackdropPath;
 
             base.OnBindingContextChanged();
         }

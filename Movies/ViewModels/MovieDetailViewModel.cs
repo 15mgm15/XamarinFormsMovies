@@ -6,9 +6,10 @@ namespace Movies
     public class MovieDetailViewModel : BaseViewModel
     {
         public Movie Item { get; set; }
-        public MovieDetailViewModel(Movie item = null)
+
+        public MovieDetailViewModel(Movie movie = null)
         {
-            
+            Title = movie.Title;
         }
     }
 }

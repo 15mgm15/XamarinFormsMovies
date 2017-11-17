@@ -19,6 +19,7 @@ namespace Movies
 
         public Command LoadItemsCommand { get; set; }
         public Command RefreshItemsCommand { get; set; }
+        public Command MovieSelectedCommand { get; set; }
 
         int Page;
 
@@ -51,9 +52,9 @@ namespace Movies
 
             Page = FirstPage;
 
-
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             RefreshItemsCommand = new Command(async () => await ExecuteRefreshItemsCommand());
+            MovieSelectedCommand = new Command<ListView>(async (listview) => await ExecuteMovieSelectedCommand(listview));
         }
 
         #region Methods
@@ -143,8 +144,6 @@ namespace Movies
                 return;
             }
 
-            //moviesList = moviesList.OrderByDescending(t => t.ReleaseDate).ToList();
-
             foreach (var movie in moviesList)
             {
                 var alreadyAdded = Items.FirstOrDefault(m => m.Id == movie.Id);
@@ -153,6 +152,19 @@ namespace Movies
                     Items.Add(movie);   
                 }
             }
+        }
+
+        async Task ExecuteMovieSelectedCommand(ListView listview)
+        {
+            var selectedMovie = listview.SelectedItem as Movie;
+            listview.SelectedItem = null;
+
+            if(selectedMovie == null)
+            {
+                return;
+            }
+            
+            await Navigation.PushAsync(new MovieDetailPage(selectedMovie));
         }
 
         #endregion

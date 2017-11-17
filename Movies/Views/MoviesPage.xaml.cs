@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Movies.Models;
-using Xamarin.Forms;
+﻿using Movies.Views.Base;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Movies
 {
-    public partial class MoviesPage : ContentPage
+    public partial class MoviesPage : BaseContentPage
     {
         MoviesViewModel viewModel;
 
@@ -14,7 +11,12 @@ namespace Movies
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new MoviesViewModel();
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Always);
+
+            BindingContext = viewModel = new MoviesViewModel
+            {
+                Navigation = Navigation
+            };
         }
 
         protected override void OnAppearing()

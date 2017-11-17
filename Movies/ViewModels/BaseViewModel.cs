@@ -9,6 +9,7 @@ namespace Movies
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        public INavigation Navigation { get; set; }
         public IDataStore<Movie> DataStore => DependencyService.Get<IDataStore<Movie>>();
 
         bool isBusy;

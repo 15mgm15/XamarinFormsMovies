@@ -14,11 +14,11 @@ namespace Movies
         #region Static data
 
         public static string BaseImgUrl = "http://image.tmdb.org/t/p/w500";
+        public static string HighResBaseImgUrl = "http://image.tmdb.org/t/p/w1000";
         const string BaseUrl = "http://api.themoviedb.org/3/";
         const string ApiKey = "api_key=ab41356b33d100ec61e6c098ecc92140";
         const string PageString = "&page=";
         const string Results = "results";
-        const string HighResBaseImgUrl = "http://image.tmdb.org/t/p/w300";
         //const string SessionId = "&session_id=cf067fbacd2ddd5c675ae143ea44a50033e0a46a";
 
         #endregion
@@ -52,17 +52,6 @@ namespace Movies
             {
                 return new Tuple<List<Movie>, string>(null, ex.Message);
             }
-        }
-
-        public async Task<Movie> GetItemAsync(string id)
-        {
-            if (id != null && CrossConnectivity.Current.IsConnected)
-            {
-                var json = await Client.GetStringAsync($"api/item/{id}").ConfigureAwait(false);
-                return await Task.Run(() => JsonConvert.DeserializeObject<Movie>(json));
-            }
-
-            return null;
         }
 
         #endregion

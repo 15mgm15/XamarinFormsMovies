@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage
+<base:BaseContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Movies.Views.Base"
     xmlns:helpers="clr-namespace:Movies.Helpers"
     xmlns:controls="clr-namespace:Movies.Controls"
     xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
@@ -9,12 +10,13 @@
     x:Class="Movies.MoviesPage"
     Title="{Binding Title}"
     IsBusy="{Binding IsBusy}"
+    BackgroundColor="{StaticResource PrimaryDark}"
     x:Name="BrowseItemsPage">
 	<!--<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Search" Clicked="AddItem_Clicked" />
 	</ContentPage.ToolbarItems>-->
-	<ContentPage.Content>
-		<StackLayout BackgroundColor="{StaticResource PrimaryDark}">
+	<base:BaseContentPage.Content>
+		<StackLayout CompressedLayout.IsHeadless="true">
 
             <ActivityIndicator
                 Margin="0,2"
@@ -23,7 +25,7 @@
             
 			<controls:CustomListView
                 x:Name="MoviesListView"
-                RowHeight="200"
+                RowHeight="210"
                 SeparatorVisibility="None"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
@@ -70,12 +72,12 @@
                                 <BoxView
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    BackgroundColor="#4D000000" />
+                                    BackgroundColor="{StaticResource CoverColor}" />
                                 <StackLayout
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     VerticalOptions="EndAndExpand"
-                                    Spacing="4"
+                                    Spacing="2"
                                     Padding="12,0,0,10">
                                     <Label
                                         Text="{Binding Title}"
@@ -89,7 +91,7 @@
                                         LineBreakMode="NoWrap"
                                         Style="{DynamicResource ListItemDetailTextStyle}"
                                         TextColor="White"
-                                        FontSize="14" />
+                                        FontSize="12" />
                                 </StackLayout>
                             </Grid>
 						</controls:NoCacheCell>
@@ -109,5 +111,5 @@
                 
 			</controls:CustomListView>
 		</StackLayout>
-	</ContentPage.Content>
-</ContentPage>
+	</base:BaseContentPage.Content>
+</base:BaseContentPage>

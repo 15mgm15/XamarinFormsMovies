@@ -1,4 +1,5 @@
 ﻿using System;
+using Movies.Views.Base;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +15,7 @@ namespace Movies
 
             DependencyService.Register<CloudDataStore>();
 
-            MainPage = new NavigationPage(new MoviesPage()){};
+            MainPage = new BaseNavigationPage(new MoviesPage()){};
         }
     }
 }

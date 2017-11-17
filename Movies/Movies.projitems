@@ -30,6 +30,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\BehaviorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\CustomListView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\NoCacheCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Base\BaseContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Base\BaseNavigationPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MovieDetailPage.xaml" />
@@ -39,5 +41,6 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Base\" />
   </ItemGroup>
 </Project>
