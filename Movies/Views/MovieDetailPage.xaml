@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:Movies.Views.Base"
+    x:Class="Movies.MovieDetailPage"
+    xmlns:cachedImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource PrimaryDark}"
+    Title="Movie Review">
+	<Grid CompressedLayout.IsHeadless="true">
+        <Grid CompressedLayout.IsHeadless="true">
+            <cachedImage:CachedImage
+                ErrorPlaceholder="{StaticResource PlaceholderImage}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Source="{Binding HighResPosterPath}"
+                Aspect="AspectFill">
+            </cachedImage:CachedImage>
+            <BoxView
+                BackgroundColor="{StaticResource CoverColor}" />
+        </Grid>
+        <StackLayout
+            Spacing="8"
+            VerticalOptions="EndAndExpand">
+            <Grid ColumnSpacing="1" CompressedLayout.IsHeadless="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.78*" />
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.17*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Text="{Binding Title}"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Margin="20,0"
+                    VerticalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    FontSize="24"/>
+                <Image
+                    Source="star.png"
+                    Grid.Column="1"
+                    HeightRequest="20"
+                    WidthRequest="20"/>
+                <Label
+                    Grid.Column="2"
+                    VerticalTextAlignment="Center"
+                    Text="{Binding VoteAverage}"
+                    HorizontalTextAlignment="End"
+                    Margin="0,0,20,0"
+                    TextColor="White"
+                    FontSize="20" />
+            </Grid>
+            <BoxView
+                Margin="20,0,0,0"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White" />
+            <Label
+                Text="{Binding Overview}"
+                HorizontalTextAlignment="Start"
+                Margin="20,18,20,30"
+                FontSize="18"
+                TextColor="White"/>
+        </StackLayout>
+	</Grid>
+</base:BaseContentPage>
