@@ -1,4 +1,5 @@
-﻿using Movies.Models;
+﻿using Microsoft.AppCenter.Analytics;
+using Movies.Models;
 using Movies.Views.Base;
 
 namespace Movies
@@ -9,6 +10,8 @@ namespace Movies
         {
             InitializeComponent();
             BindingContext = movie;
+
+            Analytics.TrackEvent(nameof(MovieDetailPage) + " Opened, specific moview: " + movie.Title);
         }
     }
 }
