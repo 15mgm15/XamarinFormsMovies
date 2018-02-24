@@ -12,7 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Movie.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MovieDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MoviesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MovieDetailPage.xaml.cs">
@@ -32,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\NoCacheCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Base\BaseContentPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Base\BaseNavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\GradientStackLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MovieDetailPage.xaml" />
@@ -42,5 +43,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Base\" />
   </ItemGroup>
 </Project>

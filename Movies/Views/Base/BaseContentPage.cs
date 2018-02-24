@@ -8,8 +8,7 @@ namespace Movies.Views.Base
     {
         public BaseContentPage()
         {
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Always);
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            
         }
     }
 }

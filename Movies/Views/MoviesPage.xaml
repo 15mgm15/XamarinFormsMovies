@@ -53,7 +53,7 @@
                 
 				<ListView.ItemTemplate>
 					<DataTemplate>
-						<controls:NoCacheCell>
+						<controls:NoCacheCell>                  
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -61,18 +61,18 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                
                                 <cachedImage:CachedImage
-                                    Grid.Row="0"
-                                    Grid.Column="0"
                                     ErrorPlaceholder="{StaticResource PlaceholderImage}"
                                     HorizontalOptions="Fill"
                                     VerticalOptions="Fill"
                                     Aspect="AspectFill">
                                 </cachedImage:CachedImage>
-                                <BoxView
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    BackgroundColor="{StaticResource CoverColor}" />
+
+                                <controls:GradientStackLayout 
+                                    StartColor="{StaticResource LightCoverColor}"
+                                    EndColor="Black"/>
+                                
                                 <StackLayout
                                     Grid.Row="0"
                                     Grid.Column="0"
@@ -82,16 +82,15 @@
                                     <Label
                                         Text="{Binding Title}"
                                         LineBreakMode="NoWrap"
-                                        Style="{DynamicResource ListItemTextStyle}"
+                                        Style="{StaticResource baseRegularLabelStyle}"
                                         TextColor="White"
-                                        FontAttributes="Bold"
-                                        FontSize="20" />
+                                        FontSize="18" />
                                     <Label
                                         Text="{Binding ReleaseDate, StringFormat='{0:MMM dd yyyy}'}"
                                         LineBreakMode="NoWrap"
-                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        Style="{StaticResource baseLightLabelStyle}"
                                         TextColor="White"
-                                        FontSize="12" />
+                                        FontSize="14" />
                                 </StackLayout>
                             </Grid>
 						</controls:NoCacheCell>

@@ -23,6 +23,11 @@ namespace Movies.Controls
                 }
             }
 
+            if(CachedImage == null)
+            {
+                return;
+            }
+
             CachedImage.Source = null;
 
             var item = BindingContext as Movie;

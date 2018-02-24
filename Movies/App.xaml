@@ -16,6 +16,7 @@
 			<Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
 			<Color x:Key="LightTextColor">#999999</Color>
             <Color x:Key="CoverColor">#66000000</Color>
+            <Color x:Key="LightCoverColor">#1A000000</Color>
 
             <x:String x:Key="PlaceholderImage">placeholder.jpg</x:String>
             
@@ -29,6 +30,40 @@
                 <Setter Property="WidthRequest" Value="20" />
                 <Setter Property="HeightRequest" Value="20" />
                 <Setter Property="IsRunning" Value="true" />
+            </Style>
+
+            <!--LABELS-->
+            <Style x:Key="baseBoldLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">ProximaNova-Bold</On>
+                            <On Platform="Android">Proxima-Nova-Bold.ttf#Proxima-Nova-Bold</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="baseRegularLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">ProximaNova-Regular</On>
+                            <On Platform="Android">Proxima-Nova-Bold.ttf#Proxima-Nova-Reg</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="baseLightLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">ProximaNova-Light</On>
+                            <On Platform="Android">Proxima-Nova-Bold.ttf#Proxima-Nova-Light</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
             </Style>
             
 		</ResourceDictionary>

@@ -50,6 +50,6 @@ namespace Movies.Models
 
         public string HighResBackdropPath { get => CloudDataStore.BaseImgUrl + BackdropPath; }
 
-        public string HighResPosterPath { get => CloudDataStore.HighResBaseImgUrl + PosterPath; }
+        public string HighResPosterPath { get => CloudDataStore.BaseImgUrl + PosterPath; }
     }
 }

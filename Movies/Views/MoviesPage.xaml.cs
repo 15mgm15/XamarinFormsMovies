@@ -1,5 +1,5 @@
 ﻿using Movies.Views.Base;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Xamarin.Forms;
 
 namespace Movies
 {
@@ -11,7 +11,7 @@ namespace Movies
         {
             InitializeComponent();
 
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Always);
+            NavigationPage.SetBackButtonTitle(this, string.Empty);
 
             BindingContext = viewModel = new MoviesViewModel
             {

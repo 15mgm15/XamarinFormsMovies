@@ -1,5 +1,6 @@
 ﻿using Movies.Models;
 using Movies.Views.Base;
+using Xamarin.Forms;
 
 namespace Movies
 {
@@ -9,6 +10,7 @@ namespace Movies
         {
             InitializeComponent();
             BindingContext = movie;
+            NavigationPage.SetBackButtonTitle(this, string.Empty);
         }
     }
 }
