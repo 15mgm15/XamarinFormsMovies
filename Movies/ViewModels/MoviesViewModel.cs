@@ -37,6 +37,13 @@ namespace Movies
             set { SetProperty(ref _isLoadingMore, value); }
         }
 
+        bool _isInTransition;
+        public bool IsInTransition
+        {
+            get { return _isInTransition; }
+            set { SetProperty(ref _isInTransition, value); }
+        }
+
         #endregion
 
         public MoviesViewModel()
@@ -54,7 +61,7 @@ namespace Movies
 
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             RefreshItemsCommand = new Command(async () => await ExecuteRefreshItemsCommand());
-            MovieSelectedCommand = new Command<ListView>(async (listview) => await ExecuteMovieSelectedCommand(listview));
+            MovieSelectedCommand = new Command<ListView>(async (listview) => await ExecuteMovieSelectedCommand(listview),(arg) => !IsInTransition);
         }
 
         #region Methods
@@ -144,6 +151,8 @@ namespace Movies
                 return;
             }
 
+            //moviesList.Sort((x, y) => DateTime.Compare(x.ReleaseDate, y.ReleaseDate));
+
             foreach (var movie in moviesList)
             {
                 var alreadyAdded = Items.FirstOrDefault(m => m.Id == movie.Id);
@@ -159,12 +168,16 @@ namespace Movies
             var selectedMovie = listview.SelectedItem as Movie;
             listview.SelectedItem = null;
 
+            IsInTransition = true;
+
             if(selectedMovie == null)
             {
                 return;
             }
             
             await Navigation.PushAsync(new MovieDetailPage(selectedMovie));
+
+            IsInTransition = false;
         }
 
         #endregion

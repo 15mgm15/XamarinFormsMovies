@@ -50,6 +50,7 @@ namespace Movies
             }
             catch (Exception ex)
             {
+                ExceptionHandler.LogAndSendException(this, nameof(GetItemsAsync), ex.Message);
                 return new Tuple<List<Movie>, string>(null, ex.Message);
             }
         }
